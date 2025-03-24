@@ -9,14 +9,15 @@ import CarouselLeftNavigation from "./CarouselLeftNavigation/CarouselLeftNavigat
 import CarouselRightNavigation from "./CarouselRightNavigation/CarouselRightNavigation";
 
 const Controls = ({ data }) => {
-  const swiper = useSwiper();
+    let swiper = useSwiper();
+    
+    useEffect(()=>{
+        //swiper.slideTo(index, speed, runCallbacks(optional))
+        swiper.slideTo(0,1)
+    },[data])
 
-  useEffect(() => {
-    swiper.slideTo(0);
-  }, [data]);
-
-  return <></>;
-};
+    return <></>
+}
 
 function Carousel({ data, renderComponent }) {
   return (
@@ -25,7 +26,7 @@ function Carousel({ data, renderComponent }) {
         style={{ padding: "0px 20px" }}
         initialSlide={0}
         modules={[Navigation]}
-        slidesPerView={"1"}
+        slidesPerView={"auto"}
         spaceBetween={40}
         allowTouchMove
       >
